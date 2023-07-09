@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan Kartini - Kunjungan</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="wrapper">
+        <div class="logo"><a href="/">Perpustakaan Kartini</a></div>
+        <div class="menu">
+          <ul>
+            <li>
+              <h4 id="tanggalLengkap"></h4>
+            </li>
+            <li>-</li>
+            <li id="output"></li>
+          </ul>
+        </div>
+        <div class="icon">
+          <a href="/"><img src="/assets/icon/envelope-solid.svg" alt="" /></a>
+          <a href="/"><img src="/assets/icon/person-circle.svg" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    <!-- END NAVBAR -->
+
+    <!-- MAIN -->
+    <div class="main-absensi">
+      <div class="main-absensi-top">
+        <div class="container-left">
+          <h3>Data Pengujung Hari Ini</h3>
+          <table>
+            <thead>
+              <tr>
+                <th width="270px">Nama</th>
+                <th width="200px">Tanggal</th>
+                <th width="200px">Jam Berkunjung</th>
+                <th width="200px">Keperluan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="container-right">
+          <h3 style="margin-bottom: 10px">Absensi Pengujung</h3>
+          <form>
+            <div class="form-group">
+              <label for="nim">NISN:</label>
+              <input
+                type="text"
+                id="nim"
+                name="nim"
+                onkeydown="return hanyaAngka(event);"
+                required />
+            </div>
+            <div class="form-group">
+              <label for="nama">Nama:</label>
+              <input type="text" id="nama" name="nama" required />
+            </div>
+            <div class="form-group">
+              <label for="keperluan">Keperluan:</label>
+              <input type="text" id="keperluan" name="keperluan" required />
+            </div>
+            <div class="form-group">
+              <label for="jam">Jam:</label>
+              <input type="time" id="jam" name="jam" required />
+            </div>
+            <div class="form-group">
+              <label for="tanggal">Tanggal:</label>
+              <input type="date" id="tanggal" name="tanggal" required />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="container-bottom">
+        <table>
+          <thead>
+            <tr>
+              <th>Kolom 1</th>
+              <th>Kolom 2</th>
+              <th>Kolom 3</th>
+              <th>Kolom 4</th>
+              <th>Kolom 5</th>
+              <th>Kolom 6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Data 1</td>
+              <td>Data 2</td>
+              <td>Data 3</td>
+              <td>Data 4</td>
+              <td>Data 5</td>
+              <td>Data 6</td>
+            </tr>
+            <!-- Tambahkan baris data sesuai kebutuhan -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- END MAIN -->
+
+    <!-- FOTBAR -->
+    <!-- <div class="fotbar">
+      <p>
+        Jl. Kemakmuran No. 51 Karanganyar, Kec. Karanganyar, Kabupaten Kebumen,
+        Jawa Tengah 54364
+      </p>
+      <p><a href="/">smansaka.kbm@gmail.com</a></p>
+      <p>(0287) 551094</p>
+    </div> -->
+    <!-- END FOTBAR -->
+
+    <script type="text/javascript">
+      // 1 detik = 1000
+      window.setTimeout("waktu()", 1);
+
+      function waktu() {
+        var tanggal = new Date();
+        setTimeout("waktu()", 1000);
+        var jam = tanggal.getHours().toString().padStart(2, "0");
+        var menit = tanggal.getMinutes().toString().padStart(2, "0");
+        var detik = tanggal.getSeconds().toString().padStart(2, "0");
+        document.getElementById("output").innerHTML =
+          jam + ":" + menit + ":" + detik;
+      }
+    </script>
+
+    <script language="JavaScript">
+      var tanggallengkap = new String();
+      var namahari = "Minggu Senin Selasa Rabu Kamis Jumat Sabtu";
+      namahari = namahari.split(" ");
+      var namabulan =
+        "Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember";
+      namabulan = namabulan.split(" ");
+      var tgl = new Date();
+      var hari = tgl.getDay();
+      var tanggal = tgl.getDate();
+      var bulan = tgl.getMonth();
+      var tahun = tgl.getFullYear();
+      tanggallengkap =
+        namahari[hari] + ", " + tanggal + " " + namabulan[bulan] + " " + tahun;
+      document.getElementById("tanggalLengkap").innerHTML = tanggallengkap;
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var jamInput = document.getElementById("jam");
+        var tanggalInput = document.getElementById("tanggal");
+
+        var now = new Date();
+        var jam =
+          now.getHours().toString().padStart(2, "0") +
+          ":" +
+          now.getMinutes().toString().padStart(2, "0");
+        var tanggal = now.toISOString().split("T")[0];
+
+        jamInput.value = jam;
+        tanggalInput.value = tanggal;
+
+        jamInput.setAttribute("min", jam);
+        jamInput.setAttribute("max", jam);
+        tanggalInput.setAttribute("min", tanggal);
+        tanggalInput.setAttribute("max", tanggal);
+      });
+    </script>
+
+    <script>
+      function hanyaAngka(event) {
+        var charCode = event.which ? event.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          event.preventDefault();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

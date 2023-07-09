@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan Kartini</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="wrapper">
+        <div class="logo"><a href="/">Perpustakaan Kartini</a></div>
+        <div class="menu">
+          <ul>
+            <li>
+              <h4 id="tanggalLengkap"></h4>
+            </li>
+            <li>-</li>
+            <li id="output"></li>
+          </ul>
+        </div>
+        <div class="icon">
+          <a href="/"><img src="/assets/icon/envelope-solid.svg" alt="" /></a>
+          <a href="/"><img src="/assets/icon/person-circle.svg" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    <!-- END NAVBAR -->
+
+    <!-- MAIN -->
+    <div class="main">
+      <div class="content">
+        <img src="/assets/icon/logo.png" style="width: 30%" />
+        <h2>Selamat Datang di Perpustakaan Kartini</h2>
+        <div class="main-list">
+          <a href="peminjaman-buku.html" class="tombol-main-list">Peminjaman</a>
+          <a href="absensi.html" class="tombol-main-list">Kunjungan</a>
+        </div>
+      </div>
+    </div>
+    <!-- END MAIN -->
+
+    <!-- FOTBAR -->
+    <div class="fotbar">
+      <p>
+        Jl. Kemakmuran No. 51 Karanganyar, Kec. Karanganyar, Kabupaten Kebumen,
+        Jawa Tengah 54364
+      </p>
+      <p><a href="/">smansaka.kbm@gmail.com</a></p>
+      <p>(0287) 551094</p>
+    </div>
+    <!-- END FOTBAR -->
+
+    <script type="text/javascript">
+      // 1 detik = 1000
+      window.setTimeout("waktu()", 1);
+
+      function waktu() {
+        var tanggal = new Date();
+        setTimeout("waktu()", 1000);
+        var jam = tanggal.getHours().toString().padStart(2, "0");
+        var menit = tanggal.getMinutes().toString().padStart(2, "0");
+        var detik = tanggal.getSeconds().toString().padStart(2, "0");
+        document.getElementById("output").innerHTML =
+          jam + ":" + menit + ":" + detik;
+      }
+    </script>
+
+    <script language="JavaScript">
+      var tanggallengkap = new String();
+      var namahari = "Minggu Senin Selasa Rabu Kamis Jumat Sabtu";
+      namahari = namahari.split(" ");
+      var namabulan =
+        "Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember";
+      namabulan = namabulan.split(" ");
+      var tgl = new Date();
+      var hari = tgl.getDay();
+      var tanggal = tgl.getDate();
+      var bulan = tgl.getMonth();
+      var tahun = tgl.getFullYear();
+      tanggallengkap =
+        namahari[hari] + ", " + tanggal + " " + namabulan[bulan] + " " + tahun;
+      document.getElementById("tanggalLengkap").innerHTML = tanggallengkap;
+    </script>
+  </body>
+</html>
