@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan Kartini - Login</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body background="assets/icon/page-background.png">
+    <div class="main" style="height: 100vh">
+      <div
+        class="content"
+        style="
+          margin-top: 50px;
+          padding: 30px 0 50px 0;
+          width: 500px;
+          background-color: #f7f7f7;
+          border-radius: 5px;
+          box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.2);
+        ">
+        <img src="/assets/icon/logo.png" style="width: 30%" />
+        <h2 style="margin-bottom: 20px">
+          Selamat Datang di Perpustakaan Kartini
+        </h2>
+        <div class="content-login">
+          <form>
+            <div class="form-group-login">
+              <div class="input-icon">
+                <img
+                  src="/assets/icon/user.png"
+                  alt="Username Icon"
+                  style="width: 20px"
+                  class="icon-login" />
+                <input
+                  type="text"
+                  id="nisn"
+                  name="nisn"
+                  placeholder="NISN"
+                  onkeydown="return hanyaAngka(event);"
+                  required />
+              </div>
+            </div>
+            <div class="form-group-login">
+              <div class="input-icon">
+                <img
+                  src="/assets/icon/email.png"
+                  alt="Username Icon"
+                  style="width: 20px"
+                  class="icon-login" />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  required />
+              </div>
+            </div>
+            <div class="form-group-login">
+              <div class="input-icon">
+                <img
+                  src="/assets/icon/user.png"
+                  alt="Username Icon"
+                  style="width: 20px"
+                  class="icon-login" />
+                <input
+                  type="text"
+                  id="nama"
+                  name="nama"
+                  placeholder="Nama"
+                  required />
+              </div>
+            </div>
+            <div class="form-group-login">
+              <div class="input-icon">
+                <img
+                  src="/assets/icon/user.png"
+                  alt="Username Icon"
+                  style="width: 20px"
+                  class="icon-login" />
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Username"
+                  required />
+              </div>
+            </div>
+            <div class="form-group-login">
+              <div class="input-icon">
+                <img
+                  src="/assets/icon/lock.png"
+                  alt="Username Icon"
+                  style="width: 20px"
+                  class="icon-login" />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  required />
+              </div>
+            </div>
+
+            <div class="form-group-login">
+              <div class="input-icon">
+                <img
+                  src="/assets/icon/users.png"
+                  alt="Username Icon"
+                  style="width: 20px"
+                  class="icon-login" />
+                <select id="role" name="role">
+                  <option>-- Pilih Salah Satu --</option>
+                  <option value="laki">Laki-Laki</option>
+                  <option value="perempuan">Perempuan</option>
+                </select>
+              </div>
+            </div>
+            <div class="button-container">
+              <button class="signup-button" type="button">Sign Up</button>
+            </div>
+            <div class="login-link">
+              <p>Sudah punya akun? <a href="login.html">Klik disini</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function hanyaAngka(event) {
+        var charCode = event.which ? event.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          event.preventDefault();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

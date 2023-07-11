@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perpustakaan Kartini</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Perpustakaan Kartini - Kunjungan</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body>
+  <body background="/assets/icon/page-background.png">
     <!-- NAVBAR -->
     <div class="navbar">
       <div class="wrapper">
-        <div class="logo"><a href="index.html">Perpustakaan Kartini</a></div>
+        <div class="logo"><a href="/">Perpustakaan Kartini</a></div>
         <div class="menu">
           <ul>
             <li>
@@ -22,23 +22,104 @@
         </div>
         <div class="icon">
           <a href="/"><img src="/assets/icon/envelope-solid.svg" alt="" /></a>
-          <a href="/"><img src="/assets/icon/person-circle.svg" alt="" /></a>
+          <a href="/login.html"
+            ><img src="/assets/icon/person-circle.svg" alt=""
+          /></a>
         </div>
       </div>
     </div>
     <!-- END NAVBAR -->
 
     <!-- MAIN -->
-    <div class="main">
-      <div class="content">
-        <img src="/assets/icon/logo.png" style="width: 30%" />
-        <h2>Selamat Datang di Perpustakaan Kartini</h2>
-        <div class="main-list">
-          <button class="tombol-main-list"><a href="peminjaman-buku.html">Peminjaman</a></button>
-          <button class="tombol-main-list">Absensi</button>
+    <div class="main-absensi">
+      <div class="main-absensi-top">
+        <div class="container-left table-swipe">
+          <h3 id="tanggalLengkap2"></h3>
+          <table>
+            <thead>
+              <tr>
+                <th width="27px">No.</th>
+                <th width="150px">Nama</th>
+                <th width="250px">Buku</th>
+                <th width="120px">Tanggal Peminjaman</th>
+                <th width="120px">Tanggal Kembali (Maks)</th>
+                <th width="300px">Keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Rafli Hada Setiawan</td>
+                <td>Sebuah Seni untuk Berbicara</td>
+                <td>10 Juli 2023</td>
+                <td>13 Juli 2023</td>
+                <td>Meminjam</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>Rafli Hada Setiawan</td>
+                <td>Sebuah Seni untuk Berbicara</td>
+                <td>10 Juli 2023</td>
+                <td>13 Juli 2023</td>
+                <td>Meminjam</td>
+              </tr>
+              <tr>
+                <td>100</td>
+                <td>Rafli Hada Setiawan</td>
+                <td>Sebuah Seni untuk Berbicara</td>
+                <td>10 Juli 2023</td>
+                <td>13 Juli 2023</td>
+                <td>Meminjam</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 style="background-color: white; margin-top: 20px">
+            Jumlah Pengujung Hari Ini : 10 Orang
+          </h3>
+        </div>
+        <div class="container-right">
+          <h3 style="margin-bottom: 10px">Form Peminjaman</h3>
+          <form>
+            <div class="form-group">
+              <label for="nim">NISN:</label>
+              <input
+                type="text"
+                id="nim"
+                name="nim"
+                onkeydown="return hanyaAngka(event);"
+                required />
+            </div>
+            <div class="form-group">
+              <label for="nama">Nama:</label>
+              <input type="text" id="nama" name="nama" required />
+            </div>
+            <div class="form-group">
+              <label for="buku">Buku:</label>
+              <input type="text" id="buku" name="buku" required />
+            </div>
+            <div class="form-group" style="display: none">
+              <label for="jam">Jam:</label>
+              <input type="time" id="jam" name="jam" required />
+            </div>
+            <div class="form-group">
+              <label for="keterangan">Keterangan:</label>
+              <input type="text" id="keterangan" name="keterangan" required style="height: 50px;"/>
+            </div>
+            <div class="form-group">
+              <label for="tanggal">Tanggal:</label>
+              <input
+                type="date"
+                id="tanggal"
+                name="tanggal"
+                required
+                disabled />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </div>
     </div>
+
     <!-- END MAIN -->
 
     <!-- FOTBAR -->
@@ -82,6 +163,49 @@
       tanggallengkap =
         namahari[hari] + ", " + tanggal + " " + namabulan[bulan] + " " + tahun;
       document.getElementById("tanggalLengkap").innerHTML = tanggallengkap;
+      tanggallengkap =
+        "Data Peminjaman Buku per " +
+        namahari[hari] +
+        ", " +
+        tanggal +
+        " " +
+        namabulan[bulan] +
+        " " +
+        tahun;
+      document.getElementById("tanggalLengkap2").innerHTML = tanggallengkap;
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var jamInput = document.getElementById("jam");
+        var tanggalInput = document.getElementById("tanggal");
+
+        var now = new Date();
+        var jam =
+          now.getHours().toString().padStart(2, "0") +
+          ":" +
+          now.getMinutes().toString().padStart(2, "0");
+        var tanggal = now.toISOString().split("T")[0];
+
+        jamInput.value = jam;
+        tanggalInput.value = tanggal;
+
+        jamInput.setAttribute("min", jam);
+        jamInput.setAttribute("max", jam);
+        tanggalInput.setAttribute("min", tanggal);
+        tanggalInput.setAttribute("max", tanggal);
+      });
+    </script>
+
+    <script>
+      function hanyaAngka(event) {
+        var charCode = event.which ? event.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          event.preventDefault();
+          return false;
+        }
+        return true;
+      }
     </script>
   </body>
 </html>
