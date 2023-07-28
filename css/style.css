@@ -393,7 +393,7 @@ a {
   }
 
   .main-absensi-top h3 {
-    width: 143%;
+    /* width: 143%; */
   }
 
   .container-right {
@@ -502,13 +502,12 @@ a {
 }
 
 @media (max-width: 768px) {
-  .table-container {
-    display: block;
+  .table-swipe {
+    
     overflow-x: auto;
   }
   
   .table-container table {
-    width: 100%;
     white-space: nowrap;
   }
   .main-data-top {
@@ -699,7 +698,7 @@ a {
   .sidebar {
     position: fixed;
     display: none;
-    width: 150px;
+    width: 180px;
   }
 
   .main-wrapper {
