@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan Kartini - Admin</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body background="/assets/icon/page-background.png">
+    <!-- START NAVBAR -->
+    <div class="navbar">
+      <div class="wrapper">
+        <div class="logo">
+          <a href="/">Perpustakaan Kartini</a>
+        </div>
+
+        <div class="toggle-icon" onclick="toggleSidebar()"></div>
+        <!-- <div class="toggle-icon" onclick="toggleSidebar()"></div> -->
+        <div class="icon">
+          <div class="dropdown">
+            <button class="mainmenubtn" onclick="toggleDropdown()">
+              <img
+                src="/assets/icon/user.png"
+                style="width: 12px; height: 12px; display: flex"
+                alt="Petugas Icon"
+                class="icon-petugas"
+              />
+              Petugas
+            </button>
+            <div class="dropdown-child" id="submenu">
+              <h4>Profil</h4>
+              <a href="/"
+                ><img
+                  src="/assets/icon/user.png"
+                  style="width: 12px; height: 12px"
+                />Profile</a
+              >
+              <a href="/"
+                ><img
+                  src="/assets/icon/power-off.png"
+                  style="width: 12px; height: 12px"
+                />Logout</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END NAVBAR -->
+
+    <!-- SIDEBAR -->
+
+    <div class="main-wrapper">
+      <div class="sidebar">
+        <div class="menu-admin-person">
+          <img
+            src="/assets/pictures/profile/FOTO_FORMAL-noBG.png"
+            style="
+              width: 90px;
+              height: 120px;
+              border: 1px solid black;
+              border-radius: 50%;
+            "
+            alt="Petugas Icon"
+          />
+          <p style="padding-top: 10px">Rafli Hada Setiawan</p>
+        </div>
+        <ul class="menu-admin">
+          <li class="menu-dropdown">
+            <a
+              href="index.html"
+              class="menu-admin-active dropdown-toggle no-caret"
+            >
+              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              Dashboard
+            </a>
+          </li>
+          <li class="menu-dropdown">
+            <a href="#" class="menu-admin-active dropdown-toggle">
+              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              Data Anggota
+              <span class="caret"></span>
+              <ul class="submenu">
+                <li><a href="data-anggota.html">Data Anggota</a></li>
+                <li><a href="input-anggota.html">Tambah Anggota</a></li>
+              </ul>
+            </a>
+          </li>
+          <li class="menu-dropdown">
+            <a href="#" class="menu-admin-active dropdown-toggle">
+              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              Data Buku
+              <span class="caret"></span>
+              <ul class="submenu">
+                <li><a href="data-buku.html">Data Buku</a></li>
+                <li><a href="input-buku.html">Tambah Buku</a></li>
+              </ul>
+            </a>
+          </li>
+          <li class="menu-dropdown">
+            <a href="#" class="menu-admin-active dropdown-toggle">
+              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              Data Admin
+              <span class="caret"></span>
+              <ul class="submenu">
+                <li><a href="data-admin.html">Data Admin</a></li>
+                <li><a href="input-admin.html">Tambah Admin</a></li>
+              </ul>
+            </a>
+          </li>
+          <li class="menu-dropdown">
+            <a href="#" class="menu-admin-active dropdown-toggle">
+              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              Laporan
+              <span class="caret"></span>
+              <ul class="submenu">
+                <li><a href="laporan-admin.html">Laporan Anggota</a></li>
+                <li><a href="laporan-buku.html">Laporan Buku</a></li>
+              </ul>
+            </a>
+          </li>
+          <li class="menu-dropdown">
+            <a href="about" class="menu-admin-active dropdown-toggle no-caret">
+              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              Tentang Perpustakaan
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="main-data">
+        <div class="main-data-top">
+          <h3>Data Admin</h3>
+          <div
+            class="container-left table-swipe"
+            style="width: 100%; padding-bottom: 20px"
+          >
+            <table>
+              <thead>
+                <tr>
+                  <th width="27px">No.</th>
+                  <th width="250px">Nama</th>
+                  <th width="220px">Email</th>
+                  <th width="100px">Username</th>
+                  <th width="100px">Status</th>
+                  <th width="70px">Tools</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: center">1</td>
+                  <td>Rafli Hada Setiawan</td>
+                  <td>raflijr47@gmail.com</td>
+                  <td>raflihs_</td>
+                  <td>Guru</td>
+                  <td style="text-align: center">
+                    <img src="../assets/icon/pen.png" style="width: 25px" />
+                    <img src="../assets/icon/delete.png" style="width: 25px" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END SIDEBAR -->
+
+    <!-- MAIN -->
+
+    <!-- END MAIN -->
+    <script>
+      function toggleDropdown() {
+        var submenu = document.getElementById("submenu");
+        if (submenu.style.display === "block") {
+          submenu.style.display = "none";
+        } else {
+          submenu.style.display = "block";
+        }
+      }
+
+      document.addEventListener("click", function (event) {
+        var mainMenuBtn = document.querySelector(".mainmenubtn");
+        if (
+          event.target !== mainMenuBtn &&
+          !mainMenuBtn.contains(event.target)
+        ) {
+          var submenu = document.getElementById("submenu");
+          submenu.style.display = "none";
+        }
+      });
+      function toggleSidebar() {
+        var sidebar = document.querySelector(".sidebar");
+        sidebar.style.display =
+          sidebar.style.display === "none" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>
