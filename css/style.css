@@ -65,7 +65,7 @@ html {
 }
 
 .mainmenubtn:hover {
-  background-color: #9ec3ff
+  background-color: #9ec3ff;
 }
 
 .icon-petugas {
@@ -102,6 +102,8 @@ html {
   border: 1px solid rgb(212, 212, 212);
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+  z-index: 1;
 }
 
 .dropdown-child h4 {
@@ -252,7 +254,7 @@ html {
 
 .tombol-main-list:hover {
   cursor: pointer;
-  background-color: #3291c0;
+  /* background-color: #3291c0; */
   transition: transform 0.3s ease;
   transform: scale(1.05);
 }
@@ -308,6 +310,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: ce;
   /* padding-left: 20px; */
 }
 
@@ -342,7 +345,46 @@ a {
   background-color: #eaf2ff;
 }
 
-/* Tambahkan CSS lain sesuai kebutuhan Anda */
+.input-search {
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px 10px 10px;
+  justify-content: flex-end;
+}
+.input-search-bt {
+  height: 25px;
+  display: flex;
+  position: absolute;
+}
+
+.input-search-bt input {
+  padding-left: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.input-search img {
+  width: 20px;
+  height: 20px;
+  display: flex;
+}
+
+.input-search button:hover {
+  cursor: pointer;
+}
+
+.direct-data-anggota {
+  color: rgb(96, 96, 251);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+.direct-data-anggota:hover {
+  color:rgb(28, 28, 221);
+  transition: ease .2s;
+}
 
 .container-right {
   width: 27%;
@@ -390,6 +432,10 @@ a {
   .main-absensi-top {
     flex-direction: column;
     /* width: 550px */
+  }
+
+  .input-search {
+    padding-left: 42%;
   }
 
   .main-absensi-top h3 {
@@ -503,10 +549,9 @@ a {
 
 @media (max-width: 768px) {
   .table-swipe {
-    
     overflow-x: auto;
   }
-  
+
   .table-container table {
     white-space: nowrap;
   }
@@ -515,12 +560,13 @@ a {
   }
 
   .toggle-icon {
-    width: 20px;
-    height: 20px;
+    width: 27px;
+    height: 27px;
     background-image: url(/assets/icon/menu-burger.svg);
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
+    margin-left: 5px;
     /* Tampilkan .toggle-icon hanya pada mode mobile */
   }
 }
@@ -646,12 +692,16 @@ a {
 
 .main-wrapper {
   display: flex;
-  gap: 20px;
+  /* gap: 20px; */
 }
 
 .main-data {
   flex: 1;
   padding: 15px;
+}
+
+.active {
+  left: 200px;
 }
 
 .main-data-top {

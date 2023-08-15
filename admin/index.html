@@ -10,9 +10,12 @@
     <!-- START NAVBAR -->
     <div class="navbar">
       <div class="wrapper">
-        <div class="logo"><a href="/">Perpustakaan Kartini</a></div>
-        
+        <div class="logo">
+          <a href="/">Perpustakaan Kartini</a>
+        </div>
+
         <div class="toggle-icon" onclick="toggleSidebar()"></div>
+        <!-- <div class="toggle-icon" onclick="toggleSidebar()"></div> -->
         <div class="icon">
           <div class="dropdown">
             <button class="mainmenubtn" onclick="toggleDropdown()">
@@ -20,7 +23,8 @@
                 src="/assets/icon/user.png"
                 style="width: 12px; height: 12px; display: flex"
                 alt="Petugas Icon"
-                class="icon-petugas" />
+                class="icon-petugas"
+              />
               Petugas
             </button>
             <div class="dropdown-child" id="submenu">
@@ -28,12 +32,14 @@
               <a href="/"
                 ><img
                   src="/assets/icon/user.png"
-                  style="width: 12px; height: 12px" />Profile</a
+                  style="width: 12px; height: 12px"
+                />Profile</a
               >
               <a href="/"
                 ><img
                   src="/assets/icon/power-off.png"
-                  style="width: 12px; height: 12px" />Logout</a
+                  style="width: 12px; height: 12px"
+                />Logout</a
               >
             </div>
           </div>
@@ -131,8 +137,21 @@
 
       function toggleSidebar() {
         var sidebar = document.querySelector(".sidebar");
-        sidebar.style.display =
-          sidebar.style.display === "none" ? "block" : "none";
+        var mainData = document.querySelector(".main-data");
+        var relative = document.querySelector(".relative");
+        if (sidebar.style.display === "none") {
+          sidebar.style.display = "block";
+          relative.style.position = "relative";
+          relative.style.zIndex = "-1";
+          relative.style.maxWidth = "48%"
+          mainData.classList.add("active"); // Menambahkan class "active" saat sidebar muncul
+        } else {
+          sidebar.style.display = "none";
+          relative.style.position = "static";
+          relative.style.zIndex = "1";
+          relative.style.maxWidth = "100%"
+          mainData.classList.remove("active"); // Menghapus class "active" saat sidebar disembunyikan
+        }
       }
     </script>
   </body>

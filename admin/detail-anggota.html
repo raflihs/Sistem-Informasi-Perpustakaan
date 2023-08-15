@@ -61,14 +61,16 @@
               border: 1px solid black;
               border-radius: 50%;
             "
-            alt="Petugas Icon" />
+            alt="Petugas Icon"
+          />
           <p style="padding-top: 10px">Rafli Hada Setiawan</p>
         </div>
         <ul class="menu-admin">
           <li class="menu-dropdown">
             <a
               href="index.html"
-              class="menu-admin-active dropdown-toggle no-caret">
+              class="menu-admin-active dropdown-toggle no-caret"
+            >
               <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
               Dashboard
             </a>
@@ -126,55 +128,47 @@
         </ul>
       </div>
 
-
       <div class="main-data">
-        <div class="main-data-top">
-          <h3>Tambah Admin</h3>
-          <div class="container-input">
-            <form>
-              <div class="form-group">
-                <label for="id_admin">ID Admin:</label>
-                <input type="text" id="id_admin" name="id_admin" disabled required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div class="form-group">
-                <label for="nama">Nama:</label>
-                <input type="text" id="nama" name="nama" required />
-              </div>
-              <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required />
-              </div>
-              <div class="form-group">
-                <label for="foto">Foto:</label>
-                <input type="file" id="foto" name="foto" required />
-              </div>
-              <div class="form-group">
-                <label for="keterangan">Keterangan:</label>
-                <input
-                  type="text"
-                  id="keterangan"
-                  name="keterangan"
-                  required
-                  style="height: 50px" />
-              </div>
-              <div class="form-group" style="display: none;">
-                <label for="tanggal">Tanggal Ditambahkan:</label>
-                <input
-                  type="date"
-                  id="tanggal"
-                  name="tanggal"
-                  required
-                  disabled />
-              </div>           
-            </form>
-            <div class="button-container" style="padding-bottom: 10px; max-width: 20%; padding: 0 100px; gap: 30px;">
-                <button type="submit">Submit</button>
-                <button type="button" style="background-color: #ee3939; color: white;">Cancel</button>
-              </div>   
+        <div class="main-data-top table-container">
+          <h3>Detail Anggota - Rafli Hada Setiawan</h3>
+          <div class="container-left table-swipe" style="width: 100%">
+            <table>
+              <tbody>
+                <tr>
+                  <td>ID Anggota</td>
+                  <td>1</td>
+                  <td class="no-hover" rowspan="8" style="text-align: center; background-color: white;">
+                    <img height="300" width="200" style="border: 2px solid black; border-radius: 10px;"
+                      src="../assets/pictures/profile/FOTO_FORMAL-noBG.png"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>NISN</td>
+                  <td>5302420030</td>
+                </tr>
+                <tr>
+                  <td>Nama</td>
+                  <td>Rafli Hada Setiawan</td>
+                </tr>
+                <tr>
+                  <td>Username</td>
+                  <td>raflihs_</td>
+                </tr>
+                <tr>
+                  <td>Jenis Kelamin</td>
+                  <td>L</td>
+                </tr>
+                <tr>
+                  <td>Kelas</td>
+                  <td>XII MIPA 3</td>
+                </tr>
+                <tr>
+                  <td>Alamat</td>
+                  <td>RT 2/5 Karanganyar, Kebumen</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -207,8 +201,21 @@
       });
       function toggleSidebar() {
         var sidebar = document.querySelector(".sidebar");
-        sidebar.style.display =
-          sidebar.style.display === "none" ? "block" : "none";
+        var mainData = document.querySelector(".main-data");
+        var relative = document.querySelector(".relative");
+        if (sidebar.style.display === "none") {
+          sidebar.style.display = "block";
+          relative.style.position = "relative";
+          relative.style.zIndex = "-1";
+          relative.style.maxWidth = "48%";
+          mainData.classList.add("active"); // Menambahkan class "active" saat sidebar muncul
+        } else {
+          sidebar.style.display = "none";
+          relative.style.position = "static";
+          relative.style.zIndex = "1";
+          relative.style.maxWidth = "100%";
+          mainData.classList.remove("active"); // Menghapus class "active" saat sidebar disembunyikan
+        }
       }
     </script>
   </body>

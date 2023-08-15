@@ -128,13 +128,25 @@
         </ul>
       </div>
 
-      <div class="main-data">
+      <div class="main-data active relative">
         <div class="main-data-top">
           <h3>Data Admin</h3>
           <div
             class="container-left table-swipe table-container"
-            style="width: 100%; padding-bottom: 20px"
+            style="width: 100%"
           >
+            <div class="input-search">
+              <div class="input-search-bt">
+                <input
+                  type="text"
+                  style="width: 140px"
+                  placeholder="Cari Admin"
+                />
+                <button type="submit" style="margin-left: 5px">
+                  <img src="/assets/icon/search.png" />
+                </button>
+              </div>
+            </div>
             <table>
               <thead>
                 <tr>
@@ -192,8 +204,21 @@
       });
       function toggleSidebar() {
         var sidebar = document.querySelector(".sidebar");
-        sidebar.style.display =
-          sidebar.style.display === "none" ? "block" : "none";
+        var mainData = document.querySelector(".main-data");
+        var relative = document.querySelector(".relative");
+        if (sidebar.style.display === "none") {
+          sidebar.style.display = "block";
+          relative.style.position = "relative";
+          relative.style.zIndex = "-1";
+          relative.style.maxWidth = "48%";
+          mainData.classList.add("active"); // Menambahkan class "active" saat sidebar muncul
+        } else {
+          sidebar.style.display = "none";
+          relative.style.position = "static";
+          relative.style.zIndex = "1";
+          relative.style.maxWidth = "100%";
+          mainData.classList.remove("active"); // Menghapus class "active" saat sidebar disembunyikan
+        }
       }
     </script>
   </body>
