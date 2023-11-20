@@ -6,7 +6,7 @@
     <title>Perpustakaan Kartini - Admin</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
-  <body background="/assets/icon/page-background.png">
+  <body background="./assets/icon/page-background.png">
     <!-- START NAVBAR -->
     <div class="navbar">
       <div class="wrapper">
@@ -20,7 +20,7 @@
           <div class="dropdown">
             <button class="mainmenubtn" onclick="toggleDropdown()">
               <img
-                src="/assets/icon/user.png"
+                src="./assets/icon/user.png"
                 style="width: 12px; height: 12px; display: flex"
                 alt="Petugas Icon"
                 class="icon-petugas"
@@ -31,13 +31,13 @@
               <h4>Profil</h4>
               <a href="/"
                 ><img
-                  src="/assets/icon/user.png"
+                  src="./assets/icon/user.png"
                   style="width: 12px; height: 12px"
                 />Profile</a
               >
               <a href="/"
                 ><img
-                  src="/assets/icon/power-off.png"
+                  src="./assets/icon/power-off.png"
                   style="width: 12px; height: 12px"
                 />Logout</a
               >
@@ -54,28 +54,30 @@
       <div class="sidebar">
         <div class="menu-admin-person">
           <img
-            src="/assets/pictures/profile/FOTO_FORMAL-noBG.png"
+            src="./assets/pictures/profile/FOTO_FORMAL-noBG.png"
             style="
               width: 90px;
               height: 120px;
               border: 1px solid black;
               border-radius: 50%;
             "
-            alt="Petugas Icon" />
+            alt="Petugas Icon"
+          />
           <p style="padding-top: 10px">Rafli Hada Setiawan</p>
         </div>
         <ul class="menu-admin">
           <li class="menu-dropdown">
             <a
               href="index.html"
-              class="menu-admin-active dropdown-toggle no-caret">
-              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              class="menu-admin-active dropdown-toggle no-caret"
+            >
+              <img src="./assets/icon/dashboard.png" alt="Dashboard Icon" />
               Dashboard
             </a>
           </li>
           <li class="menu-dropdown">
             <a href="#" class="menu-admin-active dropdown-toggle">
-              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              <img src="./assets/icon/dashboard.png" alt="Dashboard Icon" />
               Data Anggota
               <span class="caret"></span>
               <ul class="submenu">
@@ -86,7 +88,7 @@
           </li>
           <li class="menu-dropdown">
             <a href="#" class="menu-admin-active dropdown-toggle">
-              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              <img src="./assets/icon/dashboard.png" alt="Dashboard Icon" />
               Data Buku
               <span class="caret"></span>
               <ul class="submenu">
@@ -97,7 +99,7 @@
           </li>
           <li class="menu-dropdown">
             <a href="#" class="menu-admin-active dropdown-toggle">
-              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              <img src="./assets/icon/dashboard.png" alt="Dashboard Icon" />
               Data Admin
               <span class="caret"></span>
               <ul class="submenu">
@@ -108,7 +110,7 @@
           </li>
           <li class="menu-dropdown">
             <a href="#" class="menu-admin-active dropdown-toggle">
-              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              <img src="./assets/icon/dashboard.png" alt="Dashboard Icon" />
               Laporan
               <span class="caret"></span>
               <ul class="submenu">
@@ -119,62 +121,56 @@
           </li>
           <li class="menu-dropdown">
             <a href="about" class="menu-admin-active dropdown-toggle no-caret">
-              <img src="/assets/icon/dashboard.png" alt="Dashboard Icon" />
+              <img src="./assets/icon/dashboard.png" alt="Dashboard Icon" />
               Tentang Perpustakaan
             </a>
           </li>
         </ul>
       </div>
 
-
-      <div class="main-data">
-        <div class="main-data-top">
-          <h3>Tambah Admin</h3>
-          <div class="container-input">
-            <form>
-              <div class="form-group">
-                <label for="id_admin">ID Admin:</label>
-                <input type="text" id="id_admin" name="id_admin" disabled required />
+      <div class="main-data active relative">
+        <div class="main-data-top table-container">
+          <h3>Data Anggota</h3>
+          <div class="container-left table-swipe" style="width: 100%">
+            <div class="input-search">
+              <div class="input-search-bt">
+                <input type="text" style="width: 140px;" placeholder="Cari Anggota" />
+                <button type="submit" style="margin-left: 5px;">
+                  <img src="./assets/icon/search.png" />
+                </button>
               </div>
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div class="form-group">
-                <label for="nama">Nama:</label>
-                <input type="text" id="nama" name="nama" required />
-              </div>
-              <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required />
-              </div>
-              <div class="form-group">
-                <label for="foto">Foto:</label>
-                <input type="file" id="foto" name="foto" required />
-              </div>
-              <div class="form-group">
-                <label for="keterangan">Keterangan:</label>
-                <input
-                  type="text"
-                  id="keterangan"
-                  name="keterangan"
-                  required
-                  style="height: 50px" />
-              </div>
-              <div class="form-group" style="display: none;">
-                <label for="tanggal">Tanggal Ditambahkan:</label>
-                <input
-                  type="date"
-                  id="tanggal"
-                  name="tanggal"
-                  required
-                  disabled />
-              </div>           
-            </form>
-            <div class="button-container" style="padding-bottom: 10px; max-width: 20%; padding: 0 100px; gap: 30px;">
-                <button type="submit">Submit</button>
-                <button type="button" style="background-color: #ee3939; color: white;">Cancel</button>
-              </div>   
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th width="27px">No.</th>
+                  <th width="27px">NISN</th>
+                  <th width="200px">Nama</th>
+                  <th width="120px">Email</th>
+                  <th width="100px">Username</th>
+                  <th width="100px">Kelas</th>
+                  <th width="50px">Jenis Kelamin</th>
+                  <th width="250px">Alamat</th>
+                  <th width="70px">Tools</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: center">1</td>
+                  <td>5302420030</td>
+                  <td><a href="./detail-anggota.html" class="direct-data-anggota"><img src="../assets/icon/user.png" style="width: 13px; padding-right: 5px;">Rafli Hada Setiawan</a></td>
+                  <td>raflijr47@gmail.com</td>
+                  <td>raflihs_</td>
+                  <td style="text-align: center">XII MIPA 3</td>
+                  <td style="text-align: center">L</td>
+                  <td>RT 2/5 Karanganyar, Kebumen</td>
+                  <td style="text-align: center;">
+                    <img src="../assets/icon/pen.png" style="width: 25px; padding-right: 3px;" />
+                    <img src="../assets/icon/delete.png" style="width: 25px; padding-left: 3px;" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
